@@ -132,7 +132,7 @@
             border-color: var(--ioh-yellow);
         }
 
-        /* FAQ SECTION - RAMPING VERSION */
+        /* FAQ SECTION */
         .faq-section { padding: 80px 5%; max-width: 800px; margin: 0 auto; }
         .faq-section h3 { text-align: center; margin-bottom: 40px; font-size: 28px; font-weight: 800; }
         .faq-item { background: #fff; border: 1px solid #eee; border-radius: 15px; padding: 20px; margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); transition: 0.3s; }
@@ -140,20 +140,27 @@
         .faq-item p.q { font-weight: 700; color: var(--ioh-red); margin-bottom: 8px; font-size: 16px; }
         .faq-item p.a { color: #666; font-size: 14px; line-height: 1.5; }
 
-        /* FOOTER - LEBAR KE ATAS */
+        /* FOOTER REVISI */
         footer { 
             background: var(--ioh-pink); 
             color: #ffffff; 
-            padding: 80px 20px 40px; /* Padding atas ditingkatkan signifikan (80px) agar logo jelas */
+            padding: 100px 20px 60px; /* Padding atas ditambah lagi agar lebih luas */
             text-align: center; 
             position: relative; 
             width: 100%;
             margin-top: 50px;
         }
         footer::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--ioh-yellow); }
-        .footer-logo { height: 120px; width: auto; margin-bottom: 20px; } /* Jarak bawah logo juga ditambah */
-        .footer-content { max-width: 1000px; margin: 0 auto; font-size: 13px; line-height: 1.6; color: #ffffff; }
-        .footer-content strong { display: inline-block; margin-bottom: 10px; font-size: 16px; }
+        
+        .footer-logo { 
+            height: 180px; /* Diperbesar dari 120px ke 180px */
+            width: auto; 
+            margin-bottom: 25px; 
+            filter: drop-shadow(0px 4px 8px rgba(255,255,255,0.3)); /* Menambah kontras agar teks logo terbaca */
+        }
+
+        .footer-content { max-width: 1000px; margin: 0 auto; font-size: 14px; line-height: 1.8; color: #ffffff; }
+        .footer-content strong { display: inline-block; margin-bottom: 10px; font-size: 18px; letter-spacing: 0.5px; }
 
         .wa-float { position: fixed; bottom: 35px; right: 35px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; text-decoration: none; z-index: 3000; box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3); transition: 0.3s; }
         .wa-float:hover { transform: scale(1.1); background: #128c7e; }
@@ -170,11 +177,10 @@
             .hero h1 { font-size: 2.2rem; }
             .grid { grid-template-columns: 1fr; }
             .nav-links { display: none; }
-            .footer-logo { height: 100px; }
+            .footer-logo { height: 140px; } /* Ukuran mobile tetap besar */
             .area-grid { grid-template-columns: repeat(2, 1fr); }
             .check-box { margin-top: -40px; padding: 25px 20px; }
-            /* Footer mobile: Padding atas dikurangi sedikit dibanding desktop tapi tetap luas */
-            footer { padding: 60px 15px 80px; } 
+            footer { padding: 80px 15px 100px; } 
             .mobile-order-bar { display: flex; }
             .wa-float { bottom: 85px; right: 20px; width: 55px; height: 55px; font-size: 30px; }
         }
@@ -334,7 +340,7 @@
             <img src="logo-hifi-footer.png" alt="Logo Indosat HiFi Footer" class="footer-logo"><br>
             <strong>Sales Mitra Resmi Indosat HiFi Nasional</strong><br>
             Website ini adalah portal pemasaran resmi mitra digital Indosat HiFi. Seluruh proses pendaftaran resmi melalui sistem <strong>Indosat Ooredoo Hutchison</strong>.
-            <p style="margin-top: 10px;">&copy; 2026 Indosat HiFi Digital Marketing. Semua hak cipta dilindungi.</p>
+            <p style="margin-top: 15px;">&copy; 2026 Indosat HiFi Digital Marketing. Semua hak cipta dilindungi.</p>
         </div>
     </footer>
 
