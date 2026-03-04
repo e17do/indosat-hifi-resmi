@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Indosat HiFi | Internet Fiber Tanpa FUP - Mitra Resmi</title>
+    <meta name="description" content="Pasang Indosat HiFi melalui Mitra Resmi. Internet fiber optic 100% unlimited tanpa FUP. Cek jangkauan area dan daftar paket 50Mbps hingga 1Gbps di sini.">
+    <meta name="keywords" content="Indosat HiFi, Pasang WiFi Indosat, Internet Fiber Tanpa FUP, Daftar Indosat HiFi, WiFi Unlimited">
+    <meta name="robots" content="index, follow">
+
+    <style>
+        :root { 
+            --ioh-red: #ff0000; 
+            --ioh-yellow: #ffcc00; 
+            --bg-body: #ffffff; /* Referensi hifi.ioh.co.id */
+            --bg-section: #f9f9f9;
+            --text-dark: #2d2d2d;
+            --footer-dark: #333333;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; scroll-behavior: smooth; }
+        
+        body { background: var(--bg-body); color: var(--text-dark); line-height: 1.6; }
+
+        /* NAVIGATION - CLEAN WHITE */
+        nav { background: #ffffff; padding: 18px 8%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 2000; border-bottom: 1px solid #eee; }
+        .logo { font-weight: 900; font-size: 24px; color: var(--ioh-red); text-decoration: none; letter-spacing: -1px; }
+        .logo span { color: var(--ioh-yellow); }
+        .nav-links a { text-decoration: none; color: #555; margin-left: 25px; font-weight: 600; font-size: 14px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--ioh-red); }
+
+        /* HERO - IOH GRADIENT SIGNATURE */
+        .hero { 
+            background: linear-gradient(135deg, var(--ioh-red) 0%, var(--ioh-yellow) 100%); 
+            color: white; 
+            padding: 120px 20px 140px; /* Ditambah padding bawah untuk trust signals */
+            text-align: center; 
+        }
+        .hero h1 { font-size: 3.2rem; margin-bottom: 15px; font-weight: 800; }
+        .hero p { font-size: 1.3rem; opacity: 0.95; font-weight: 400; max-width: 800px; margin: 0 auto; }
+
+        /* PENAMBAHAN KEUNGGULAN (TRUST SIGNALS) */
+        .trust-signals {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .signal {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            backdrop-filter: blur(5px);
+        }
+
+        /* CHECK AREA BOX - FLOATING CLEAN */
+        .check-box { max-width: 750px; margin: -60px auto 60px; background: #ffffff; padding: 40px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); text-align: center; border: 1px solid #f0f0f0; }
+        .check-box h3 { margin-bottom: 20px; font-size: 22px; font-weight: 700; }
+        .check-box input { width: 75%; padding: 16px; border: 1px solid #e0e0e0; border-radius: 12px; margin-bottom: 15px; font-size: 16px; outline: none; background: #fafafa; }
+        .check-box input:focus { border-color: var(--ioh-red); background: #fff; }
+        .btn-check { background: var(--ioh-red); color: white; padding: 16px 35px; border: none; border-radius: 12px; font-weight: bold; cursor: pointer; font-size: 16px; transition: 0.3s; width: 75%; }
+        .btn-check:hover { background: #d50000; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(230,0,0,0.3); }
+
+        /* PRICING SECTION - BG LIGHT GRAY */
+        .pricing-section { background: var(--bg-section); padding: 80px 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        
+        /* CARDS - WHITE & SHARP */
+        .card { 
+            background: #ffffff; 
+            border-radius: 24px; 
+            padding: 40px 30px; 
+            display: flex; 
+            flex-direction: column; 
+            transition: 0.4s; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border: 1px solid #efefef;
+            text-align: center;
+        }
+        .card:hover { transform: translateY(-12px); box-shadow: 0 30px 60px rgba(0,0,0,0.1); border-color: var(--ioh-yellow); }
+        
+        .speed-label { font-size: 32px; font-weight: 800; color: var(--ioh-red); margin-bottom: 10px; }
+        .price-main { font-size: 2.2rem; font-weight: 800; color: #111; margin-bottom: 5px; }
+        .price-sub { font-size: 12px; color: #888; margin-bottom: 25px; min-height: 45px; border-bottom: 1px solid #f0f0f0; padding-bottom: 15px; }
+
+        .features { list-style: none; font-size: 14px; flex-grow: 1; margin-bottom: 30px; text-align: left; }
+        .features li { margin-bottom: 12px; display: flex; align-items: center; color: #555; }
+        .features li::before { content: "✔"; margin-right: 12px; color: #2ecc71; font-weight: bold; }
+
+        .btn-order { display: block; padding: 16px; text-align: center; text-decoration: none; color: white; border-radius: 14px; font-weight: 700; background: var(--ioh-red); transition: 0.3s; }
+        .btn-order:hover { background: #222; }
+
+        /* CAKUPAN AREA - UPDATE INTERAKTIF & PROFESIONAL */
+        .area-section { background: #ffffff; padding: 80px 20px; text-align: center; }
+        .area-section h3 { font-size: 26px; margin-bottom: 40px; color: #111; }
+        .area-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; max-width: 1000px; margin: 0 auto; }
+        .area-grid span { 
+            background: #ffffff; 
+            padding: 12px; 
+            border-radius: 8px; 
+            font-size: 14px; 
+            color: #444; 
+            font-weight: 600; 
+            border: 1px solid #eee;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .area-grid span:hover { 
+            background: var(--ioh-red); 
+            color: #fff; 
+            border-color: var(--ioh-red);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255,0,0,0.2);
+        }
+
+        /* SK SECTION - LIGHT GRAY */
+        .sk-section { background: var(--bg-section); padding: 60px 20px; }
+        .sk-container { max-width: 800px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 16px; }
+        .sk-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        .sk-table td { padding: 15px; border-bottom: 1px solid #eee; vertical-align: top; }
+        .sk-table td:first-child { font-weight: 700; width: 30%; color: var(--ioh-red); }
+
+        /* FOOTER - COAL DARK */
+        footer { background: var(--footer-dark); color: #aaaaaa; padding: 80px 20px; text-align: center; border-top: 5px solid var(--ioh-yellow); }
+        .footer-content { max-width: 900px; margin: 0 auto; font-size: 13px; line-height: 1.8; }
+        .footer-content strong { color: #ffffff; }
+
+        /* WA FLOATING */
+        .wa-float { position: fixed; bottom: 35px; right: 35px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; text-decoration: none; z-index: 3000; box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3); transition: 0.3s; }
+        .wa-float:hover { transform: scale(1.1) rotate(10deg); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">Indosat<span>HiFi</span></a>
+        <div class="nav-links">
+            <a href="#paket">Paket Internet</a>
+            <a href="#cek">Cek Area</a>
+            <a href="https://wa.me/6285775347426">Hubungi Admin</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Internet Fiber Tanpa FUP</h1>
+        <p>Bebas akses streaming 4K, video conference, dan gaming kompetitif dengan jaringan 100% Fiber Optic.</p>
+        
+        <div class="trust-signals">
+            <div class="signal">🚀 Kecepatan s/d 1 Gbps</div>
+            <div class="signal">♾️ Benar-benar Unlimited</div>
+            <div class="signal">🛠️ Gratis Instalasi</div>
+            <div class="signal">⭐ Jaringan 100% Fiber</div>
+        </div>
+    </header>
+
+    <div class="check-box" id="cek">
+        <h3>Pengecekan Jangkauan Area Nasional</h3>
+        <input type="text" id="alamatInput" placeholder="Ketik alamat lengkap Anda (Jalan, Kota, Kelurahan)...">
+        <br>
+        <button class="btn-check" onclick="prosesCek()">CEK JARINGAN SEKARANG</button>
+    </div>
+
+    <section class="pricing-section" id="paket">
+        <div class="container">
+            <div class="grid">
+                <div class="card">
+                    <div class="speed-label">50 Mbps</div>
+                    <div class="price-main">Rp 271.950<span>/bln</span></div>
+                    <div class="price-sub">Promo: 7 Bln Rp 1.359.750 | 12 Bln Rp 2.175.500</div>
+                    <ul class="features">
+                        <li>Unlimited (Tanpa FUP)</li>
+                        <li>Sudah Termasuk PPN 11%</li>
+                        <li>Gratis Instalasi & Modem</li>
+                        <li>Ideal 1-4 Perangkat</li>
+                        <li>Free Vision Plus</li>
+                    </ul>
+                    <a href="https://wa.me/6285775347426?text=Halo%20Admin,%20saya%20mau%20daftar%20HiFi%2050Mbps" class="btn-order">Daftar Sekarang</a>
+                </div>
+
+                <div class="card" style="border-top: 6px solid var(--ioh-yellow);">
+                    <div class="speed-label">75 Mbps</div>
+                    <div class="price-main">Rp 305.250<span>/bln</span></div>
+                    <div class="price-sub">Promo: 7 Bln Rp 1.526.200 | 12 Bln Rp 2.442.500</div>
+                    <ul class="features">
+                        <li>Koneksi Lebih Cepat & Stabil</li>
+                        <li>Sudah Termasuk PPN 11%</li>
+                        <li>Gratis Instalasi & Modem</li>
+                        <li>Free Vision Plus</li>
+                    </ul>
+                    <a href="https://wa.me/6285775347426?text=Halo%20Admin,%20saya%20mau%20daftar%20HiFi%2075Mbps" class="btn-order">Daftar Sekarang</a>
+                </div>
+
+                <div class="card">
+                    <div class="speed-label">300 Mbps</div>
+                    <div class="price-main">Rp 382.950<span>/bln</span></div>
+                    <div class="price-sub">Promo: 7 Bln Rp 1.914.750 | 12 Bln Rp 3.063.500</div>
+                    <ul class="features">
+                        <li>Ultra Low Latency Gaming</li>
+                        <li>Sudah Termasuk PPN 11%</li>
+                        <li>Gratis Instalasi & Modem</li>
+                        <li>Free Vision Plus</li>
+                        <li>Free Catchplay+ Premium</li>
+                        <li>Prioritas Bandwidth 24/7</li>
+                    </ul>
+                    <a href="https://wa.me/6285775347426?text=Halo%20Admin,%20saya%20mau%20daftar%20HiFi%20300Mbps" class="btn-order">Daftar Sekarang</a>
+                </div>
+
+                <div class="card">
+                    <div class="speed-label">1 Gbps</div>
+                    <div class="price-main">Rp 1.110.000<span>/bln</span></div>
+                    <div class="price-sub">Promo: 7 Bln Rp 5.550.000 | 12 Bln Rp 8.880.000</div>
+                    <ul class="features">
+                        <li>Kecepatan Internet Tertinggi</li>
+                        <li>Sudah Termasuk PPN 11%</li>
+                        <li>Gratis Instalasi & Modem</li>
+                        <li>Free Vision Plus</li>
+                        <li>Free Catchplay+ Premium</li>
+                    </ul>
+                    <a href="https://wa.me/6285775347426?text=Halo%20Admin,%20saya%20mau%20daftar%20HiFi%201Gbps" class="btn-order">Daftar Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="area-section">
+        <div class="container">
+            <h3>Jangkauan Layanan Nasional</h3>
+            <div class="area-grid">
+                <span onclick="cekArea('Jakarta')">Jakarta</span>
+                <span onclick="cekArea('Bogor')">Bogor</span>
+                <span onclick="cekArea('Depok')">Depok</span>
+                <span onclick="cekArea('Tangerang')">Tangerang</span>
+                <span onclick="cekArea('Bekasi')">Bekasi</span>
+                <span onclick="cekArea('Bandung')">Bandung</span>
+                <span onclick="cekArea('Surabaya')">Surabaya</span>
+                <span onclick="cekArea('Semarang')">Semarang</span>
+                <span onclick="cekArea('Yogyakarta')">Yogyakarta</span>
+                <span onclick="cekArea('Solo')">Solo</span>
+                <span onclick="cekArea('Medan')">Medan</span>
+                <span onclick="cekArea('Palembang')">Palembang</span>
+                <span onclick="cekArea('Bali')">Bali</span>
+                <span onclick="cekArea('Denpasar')">Denpasar</span>
+                <span onclick="cekArea('Malang')">Malang</span>
+                <span onclick="cekArea('Cianjur')">Cianjur</span>
+                <span onclick="cekArea('Karawang')">Karawang</span>
+                <span onclick="cekArea('Tegal')">Tegal</span>
+                <span onclick="cekArea('Kediri')">Kediri</span>
+                <span onclick="cekArea('Mojokerto')">Mojokerto</span>
+                <span onclick="cekArea('Sumedang')">Sumedang</span>
+                <span onclick="cekArea('Metro Lampung')">Metro Lampung</span>
+                <span onclick="cekArea('Pekalongan')">Pekalongan</span>
+                <span onclick="cekArea('Klaten')">Klaten</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="sk-section">
+        <div class="sk-container">
+            <h3 style="margin-bottom: 20px; text-align: center; color: var(--ioh-red);">Syarat & Ketentuan Berlangganan</h3>
+            <table class="sk-table">
+                <tr><td>Cakupan Jaringan</td><td>Dilakukan pengecekan jaringan oleh admin kami melalui chat WA.</td></tr>
+                <tr><td>Pemasangan</td><td>Gratis biaya instalasi standar dan perangkat dipinjamkan selama berlangganan.</td></tr>
+                <tr><td>Pembayaran</td><td>Tagihan muncul setelah layanan aktif. Pembayaran via Aplikasi IM3, Minimarket, atau Bank.</td></tr>
+            </table>
+        </div>
+    </section>
+<section style="background: #f4f4f4; padding: 40px 20px; font-size: 12px; color: #888; text-align: justify; line-height: 1.5;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+        <p>
+            <strong>Layanan Pasang Indosat HiFi Nasional:</strong> Melayani pendaftaran pasang baru Indosat HiFi untuk wilayah Jakarta, Bogor, Depok, Tangerang, Bekasi, Bandung, Surabaya, Semarang, Yogyakarta, Solo, Medan, Palembang, Bali, Malang, Cianjur, Karawang, Tegal, Kediri, Mojokerto, Sumedang, Metro Lampung, Pekalongan, dan Klaten. 
+            Nikmati promo <strong>Internet Fiber Unlimited Tanpa FUP</strong> dengan kecepatan tinggi. Indosat HiFi adalah solusi WiFi rumah murah terbaik dari Indosat Ooredoo Hutchison untuk streaming, gaming, dan kerja remote.
+        </p>
+    </div>
+</section>
+    <footer>
+        <div class="footer-content">
+            <p style="margin-bottom: 20px;">
+                <strong>Sales Mitra Resmi Indosat HiFi</strong><br>
+                Website ini dikelola secara mandiri oleh mitra pemasaran digital resmi Indosat HiFi. Seluruh proses administrasi, instalasi teknis, dan aktivasi layanan diproses langsung melalui sistem resmi <strong>Indosat Ooredoo Hutchison</strong>.
+            </p>
+            <p>&copy; 2026 Indosat HiFi Sales Nasional. Semua hak cipta dilindungi.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/6285775347426" class="wa-float" target="_blank">💬</a>
+
+    <script>
+        function prosesCek() {
+            const alamat = document.getElementById('alamatInput').value;
+            if (alamat.trim() === "") {
+                alert("Mohon masukkan alamat lengkap Anda.");
+                return;
+            }
+            const pesan = "Halo Admin, saya ingin cek jangkauan area Indosat HiFi di alamat: " + encodeURIComponent(alamat);
+            window.open("https://wa.me/6285775347426?text=" + pesan, "_blank");
+        }
+
+        // Script tambahan untuk membuat Area Grid fungsional
+        function cekArea(kota) {
+            const pesan = "Halo Admin, saya ingin tanya ketersediaan jaringan Indosat HiFi untuk wilayah " + kota;
+            window.open("https://wa.me/6285775347426?text=" + encodeURIComponent(pesan), "_blank");
+        }
+    </script>
+</body>
+</html>
