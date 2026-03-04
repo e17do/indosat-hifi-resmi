@@ -69,165 +69,113 @@
             --ioh-yellow: #ffcc00; 
             --ioh-pink: #e11284; 
             --bg-body: #ffffff;
-            --bg-section: #f0f2f5; 
+            --bg-section: #f4f7f9; 
             --text-dark: #2d2d2d;
             --dark-fiber: #0f0f1a;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; scroll-behavior: smooth; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; scroll-behavior: smooth; }
         body { background: var(--bg-body); color: var(--text-dark); line-height: 1.6; }
 
         /* NAVBAR */
-        nav { background: #ffffff; padding: 12px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 2000; border-bottom: 1px solid #eee; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        nav { background: #ffffff; padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 2000; border-bottom: 1px solid #eee; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         .logo-container { display: flex; align-items: center; text-decoration: none; }
-        .main-logo { height: 75px; width: auto; display: block; }
+        .main-logo { height: 65px; width: auto; display: block; }
 
         .nav-links a { text-decoration: none; color: #555; margin-left: 25px; font-weight: 600; font-size: 14px; transition: 0.3s; }
         .nav-links a:hover { color: var(--ioh-red); }
 
         /* HERO */
         .hero { 
-            background: linear-gradient(135deg, var(--ioh-red) 0%, var(--ioh-yellow) 100%); 
+            background: linear-gradient(135deg, var(--ioh-red) 0%, var(--ioh-pink) 100%); 
             color: white; 
-            padding: 60px 20px 100px; 
+            padding: 80px 20px 120px; 
             text-align: center; 
         }
-        .hero h1 { font-size: 3.2rem; margin-bottom: 10px; font-weight: 800; text-shadow: 2px 2px 10px rgba(0,0,0,0.1); }
-        .hero p { font-size: 1.25rem; opacity: 0.95; font-weight: 400; max-width: 850px; margin: 0 auto; line-height: 1.4; }
+        .hero h1 { font-size: 3.2rem; margin-bottom: 15px; font-weight: 800; text-shadow: 2px 2px 15px rgba(0,0,0,0.2); }
+        .hero p { font-size: 1.25rem; opacity: 0.95; font-weight: 400; max-width: 800px; margin: 0 auto; line-height: 1.5; }
 
-        .trust-signals { display: flex; justify-content: center; gap: 15px; margin-top: 25px; flex-wrap: wrap; }
-        .signal { background: rgba(255, 255, 255, 0.2); padding: 6px 15px; border-radius: 50px; font-size: 14px; font-weight: 600; backdrop-filter: blur(5px); }
+        .trust-signals { display: flex; justify-content: center; gap: 12px; margin-top: 30px; flex-wrap: wrap; }
+        .signal { background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255,255,255,0.3); padding: 8px 18px; border-radius: 50px; font-size: 13px; font-weight: 600; backdrop-filter: blur(5px); }
 
         /* CHECK BOX */
         .check-box { 
-            max-width: 750px; 
-            margin: -50px auto 40px; 
+            max-width: 700px; 
+            margin: -60px auto 40px; 
             background: #ffffff; 
-            padding: 30px 40px; 
+            padding: 35px; 
             border-radius: 20px; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08); 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12); 
             text-align: center; 
             border: 1px solid #f0f0f0; 
             position: relative; 
             z-index: 10; 
         }
-        .check-box h2 { margin-bottom: 15px; font-size: 22px; font-weight: 700; color: var(--text-dark); }
-        .check-box input { width: 75%; padding: 14px; border: 1px solid #e0e0e0; border-radius: 12px; margin-bottom: 15px; font-size: 16px; outline: none; background: #fafafa; }
-        .btn-check { background: var(--ioh-red); color: white; padding: 14px 35px; border: none; border-radius: 12px; font-weight: bold; cursor: pointer; font-size: 16px; transition: 0.3s; width: 75%; }
-        .btn-check:hover { background: #d50000; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(230,0,0,0.3); }
+        .check-box h2 { margin-bottom: 20px; font-size: 24px; font-weight: 700; color: #1a1a1a; }
+        .check-box input { width: 100%; max-width: 500px; padding: 16px; border: 2px solid #eee; border-radius: 12px; margin-bottom: 15px; font-size: 16px; outline: none; transition: 0.3s; }
+        .check-box input:focus { border-color: var(--ioh-red); }
+        .btn-check { background: var(--ioh-red); color: white; padding: 16px 40px; border: none; border-radius: 12px; font-weight: bold; cursor: pointer; font-size: 16px; transition: 0.3s; width: 100%; max-width: 500px; }
+        .btn-check:hover { background: #d50000; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(230,0,0,0.3); }
 
-        /* PRICING GRID */
-        .pricing-section { background: var(--bg-section); padding: 60px 10px; }
-        .container-pricing { max-width: 1400px; margin: 0 auto; }
-        .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+        /* PRICING */
+        .pricing-section { background: var(--bg-section); padding: 80px 5%; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1400px; margin: 0 auto; }
 
-        .card { border-radius: 20px; padding: 30px 15px; display: flex; flex-direction: column; transition: 0.4s; border: 2px solid rgba(0,0,0,0.05); text-align: center; }
-        .card:hover { transform: translateY(-12px); box-shadow: 0 30px 60px rgba(0,0,0,0.12); border-color: var(--ioh-yellow); }
+        .card { background: white; border-radius: 25px; padding: 35px 25px; display: flex; flex-direction: column; transition: 0.4s; border: 1px solid #e1e1e1; text-align: center; position: relative; overflow: hidden; }
+        .card:hover { transform: translateY(-15px); box-shadow: 0 35px 70px rgba(0,0,0,0.1); }
 
-        .card-grey { background: linear-gradient(180deg, #f8f9fa 0%, #d1d5db 100%); border-top: 6px solid #94a3b8; }
-        .card-blue { background: linear-gradient(180deg, #f0f9ff 0%, #bae6fd 100%); border-top: 6px solid #0284c7; }
-        .card-purple { background: linear-gradient(180deg, #faf5ff 0%, #e9d5ff 100%); border-top: 6px solid #a855f7; }
-        .card-gold { background: linear-gradient(145deg, #1a1a1a 0%, #333333 100%); color: #ffffff; border-top: 6px solid var(--ioh-yellow); }
+        .card-grey { border-top: 8px solid #94a3b8; }
+        .card-blue { border-top: 8px solid #0284c7; }
+        .card-purple { border-top: 8px solid #a855f7; }
+        .card-gold { background: #111; color: #fff; border-top: 8px solid var(--ioh-yellow); }
 
-        .card-gold .price-main { color: #ffffff; }
-        .card-gold .price-sub { color: #888; border-bottom-color: #444; }
-        .card-gold .features li { color: #ddd; }
+        .speed-label { font-size: 32px; font-weight: 900; color: var(--ioh-red); margin-bottom: 5px; }
         .card-gold .speed-label { color: var(--ioh-yellow); }
-        
-        .speed-label { font-size: 28px; font-weight: 800; color: var(--ioh-red); margin-bottom: 5px; }
-        .price-main { font-size: 1.6rem; font-weight: 800; color: #111; margin-bottom: 5px; }
-        .price-main span { font-size: 14px; }
-        .price-sub { font-size: 10.5px; color: #888; margin-bottom: 20px; min-height: 40px; border-bottom: 1px solid #f0f0f0; padding-bottom: 15px; line-height: 1.4; }
-        
-        .features { list-style: none; font-size: 12.5px; flex-grow: 1; margin-bottom: 25px; text-align: left; }
-        .features li { margin-bottom: 10px; display: flex; align-items: flex-start; color: #555; }
-        .features li::before { content: "✔"; margin-right: 8px; color: #2ecc71; font-weight: bold; }
 
-        .btn-order { display: block; padding: 14px; text-align: center; text-decoration: none; color: white; border-radius: 12px; font-weight: 700; background: var(--ioh-red); transition: 0.3s; font-size: 14px; }
+        .price-main { font-size: 2rem; font-weight: 800; color: #111; margin-bottom: 5px; }
+        .card-gold .price-main { color: #fff; }
+        .price-main span { font-size: 16px; font-weight: 400; }
+
+        .price-sub { font-size: 12px; color: #777; margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee; height: 50px; }
+        .card-gold .price-sub { border-bottom-color: #333; }
+        
+        .features { list-style: none; font-size: 14px; flex-grow: 1; margin-bottom: 30px; text-align: left; }
+        .features li { margin-bottom: 12px; display: flex; align-items: center; color: #444; }
+        .card-gold .features li { color: #ccc; }
+        .features li::before { content: "✓"; margin-right: 10px; color: #2ecc71; font-weight: 900; }
+
+        .btn-order { display: block; padding: 16px; text-align: center; text-decoration: none; color: white; border-radius: 12px; font-weight: 700; background: var(--ioh-red); transition: 0.3s; }
         .card-gold .btn-order { background: var(--ioh-yellow); color: #000; }
+        .btn-order:hover { filter: brightness(1.2); }
+
+        /* COMPARISON SEO SECTION (WHITE HAT) */
+        .comparison-safe { background: #fff; padding: 60px 5%; border-top: 1px solid #eee; }
+        .comparison-container { max-width: 900px; margin: 0 auto; text-align: center; color: #666; font-size: 14px; line-height: 1.8; }
+        .comparison-container h3 { color: #333; margin-bottom: 15px; font-size: 18px; }
 
         /* AREA SECTION */
-        .area-section { 
-            background: linear-gradient(135deg, #0f0f1a 0%, #1b1b2f 100%); 
-            padding: 80px 20px; 
-            text-align: center; 
-            position: relative;
-            overflow: hidden;
-        }
-        .area-section h2 { margin-bottom: 40px; font-size: 28px; color: #ffffff; font-weight: 800; }
+        .area-section { background: var(--dark-fiber); padding: 80px 5%; text-align: center; }
+        .area-section h2 { margin-bottom: 40px; color: white; font-size: 30px; }
         .area-section h2 span { color: var(--ioh-yellow); }
-        
-        .area-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; max-width: 1100px; margin: 0 auto; position: relative; z-index: 5; }
-        .area-grid span { 
-            background: rgba(255, 255, 255, 0.05); 
-            padding: 14px; 
-            border-radius: 10px; 
-            font-size: 13px; 
-            color: #d1d1d1; 
-            font-weight: 600; 
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            transition: 0.3s ease; 
-            cursor: pointer; 
-            backdrop-filter: blur(5px);
-        }
-        .area-grid span:hover { 
-            background: var(--ioh-yellow); 
-            color: #000; 
-            transform: translateY(-5px); 
-            box-shadow: 0 10px 20px rgba(255, 204, 0, 0.2); 
-            border-color: var(--ioh-yellow);
-        }
-
-        /* FAQ SECTION */
-        .faq-section { padding: 80px 5%; max-width: 800px; margin: 0 auto; }
-        .faq-section h2 { text-align: center; margin-bottom: 40px; font-size: 28px; font-weight: 800; }
-        .faq-item { background: #fff; border: 1px solid #eee; border-radius: 15px; padding: 20px; margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); transition: 0.3s; }
-        .faq-item:hover { border-color: var(--ioh-yellow); }
-        .faq-item p.q { font-weight: 700; color: var(--ioh-red); margin-bottom: 8px; font-size: 16px; }
-        .faq-item p.a { color: #666; font-size: 14px; line-height: 1.5; }
+        .area-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; max-width: 1100px; margin: 0 auto; }
+        .area-grid span { background: rgba(255,255,255,0.05); padding: 12px; border-radius: 8px; font-size: 13px; color: #bbb; border: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: 0.3s; }
+        .area-grid span:hover { background: var(--ioh-yellow); color: #000; transform: scale(1.05); }
 
         /* FOOTER */
-        footer { 
-            background: var(--ioh-pink); 
-            color: #ffffff; 
-            padding: 100px 20px 60px; 
-            text-align: center; 
-            position: relative; 
-            width: 100%;
-            margin-top: 50px;
-        }
-        footer::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--ioh-yellow); }
-        
-        .footer-logo { 
-            height: 180px; 
-            width: auto; 
-            margin-bottom: 25px; 
-            filter: drop-shadow(0px 4px 8px rgba(255,255,255,0.3)); 
-        }
+        footer { background: var(--ioh-pink); color: white; padding: 80px 5% 100px; text-align: center; }
+        .footer-logo { height: 120px; margin-bottom: 20px; filter: brightness(0) invert(1); }
 
-        .footer-content { max-width: 1000px; margin: 0 auto; font-size: 14px; line-height: 1.8; color: #ffffff; }
-        .footer-content strong { display: inline-block; margin-bottom: 10px; font-size: 18px; letter-spacing: 0.5px; }
+        /* FLOATING & MOBILE */
+        .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; text-decoration: none; z-index: 3000; box-shadow: 0 10px 25px rgba(37,211,102,0.4); }
+        .mobile-order-bar { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: white; padding: 15px 25px; box-shadow: 0 -5px 20px rgba(0,0,0,0.1); z-index: 2500; justify-content: space-between; align-items: center; }
+        .mobile-order-bar a { background: var(--ioh-red); color: white; text-decoration: none; padding: 12px 25px; border-radius: 10px; font-weight: 800; }
 
-        .wa-float { position: fixed; bottom: 35px; right: 35px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; text-decoration: none; z-index: 3000; box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3); transition: 0.3s; }
-        .wa-float:hover { transform: scale(1.1); background: #128c7e; }
-
-        .mobile-order-bar { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: white; padding: 10px 20px; box-shadow: 0 -5px 20px rgba(0,0,0,0.1); z-index: 2500; justify-content: space-between; align-items: center; }
-        .mobile-order-bar span { font-size: 12px; font-weight: 700; color: #333; }
-        .mobile-order-bar a { background: var(--ioh-red); color: white; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: 800; font-size: 13px; }
-
-        @media (max-width: 1100px) { .grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 768px) {
-            .main-logo { height: 45px; }
-            .hero { padding: 50px 15px 80px; }
             .hero h1 { font-size: 2.2rem; }
-            .grid { grid-template-columns: 1fr; }
             .nav-links { display: none; }
-            .footer-logo { height: 140px; } 
-            .area-grid { grid-template-columns: repeat(2, 1fr); }
-            .check-box { margin-top: -40px; padding: 25px 20px; }
-            footer { padding: 80px 15px 100px; } 
             .mobile-order-bar { display: flex; }
-            .wa-float { bottom: 85px; right: 20px; width: 55px; height: 55px; font-size: 30px; }
+            .wa-float { bottom: 90px; right: 20px; }
+            .check-box { margin: -40px 15px 40px; padding: 25px; }
         }
     </style>
 </head>
@@ -238,181 +186,138 @@
             <img src="logo-hifi.png" alt="Indosat HiFi Logo Resmi" class="main-logo">
         </a>
         <div class="nav-links">
-            <a href="#paket">Paket</a>
-            <a href="#cek">Cek Area</a>
-            <a href="https://wa.me/6285775347426">Daftar</a>
+            <a href="#paket">Paket Internet</a>
+            <a href="#cek">Cek Jangkauan</a>
+            <a href="https://wa.me/6285775347426">Hubungi Sales</a>
         </div>
     </nav>
 
     <header class="hero">
         <h1>Internet Fiber Tanpa FUP</h1>
-        <p>Solusi WiFi rumah terbaik dengan teknologi 100% Fiber Optic Nasional. Lebih stabil, lebih cepat, dan lebih terjangkau.</p>
-        
+        <p>Nikmati koneksi WiFi rumah 100% Fiber Optic dari Indosat Ooredoo Hutchison. Bebas FUP, bebas hambatan, harga tetap selamanya.</p>
         <div class="trust-signals">
-            <div class="signal">🚀 Kecepatan s/d 1 Gbps</div>
-            <div class="signal">♾️ Benar-benar Unlimited</div>
-            <div class="signal">🛠️ Gratis Instalasi</div>
-            <div class="signal">⭐ Jaringan 100% Fiber</div>
+            <div class="signal">✓ Kecepatan s/d 1 Gbps</div>
+            <div class="signal">✓ True Unlimited</div>
+            <div class="signal">✓ Gratis Instalasi</div>
+            <div class="signal">✓ Router WiFi 6</div>
         </div>
     </header>
 
     <section class="check-box" id="cek">
-        <h2>Pengecekan Jangkauan Area Nasional</h2>
-        <input type="text" id="alamatInput" placeholder="Ketik alamat lengkap (Jalan, Komplek, Kelurahan, Kota)...">
-        <br>
+        <h2>Cek Ketersediaan Area</h2>
+        <input type="text" id="alamatInput" placeholder="Masukkan alamat lengkap atau nama perumahan...">
         <button class="btn-check" onclick="prosesCek()">CEK JARINGAN SEKARANG</button>
     </section>
 
     <section class="pricing-section" id="paket">
-        <div class="container-pricing">
-            <div class="grid">
-                <div class="card card-grey">
-                    <div class="speed-label">50 Mbps</div>
-                    <div class="price-main">Rp 271.950<span>/bln</span></div>
-                    <div class="price-sub">Promo: 7 Bln Rp 1.359.750<br>12 Bln Rp 2.175.500</div>
-                    <ul class="features">
-                        <li>Unlimited (Tanpa FUP)</li>
-                        <li>Termasuk PPN 11%</li>
-                        <li>Gratis Instalasi</li>
-                        <li>Ideal 1-4 Perangkat</li>
-                        <li>Free Vision Plus</li>
-                    </ul>
-                    <a href="https://wa.me/6285775347426?text=Halo%20Admin,%20saya%20mau%20daftar%20HiFi%2050Mbps" class="btn-order">Daftar Sekarang</a>
-                </div>
-
-                <div class="card card-blue">
-                    <div class="speed-label">75 Mbps</div>
-                    <div class="price-main">Rp 305.250<span>/bln</span></div>
-                    <div class="price-sub">Promo: 7 Bln Rp 1.526.200<br>12 Bln Rp 2.442.500</div>
-                    <ul class="features">
-                        <li>High Speed & Stabil</li>
-                        <li>Termasuk PPN 11%</li>
-                        <li>Gratis Instalasi</li>
-                        <li>Ideal 5-8 Perangkat</li>
-                        <li>Free Vision Plus</li>
-                    </ul>
-                    <a href="https://wa.me/6285775347426?text=Halo%20Admin,%20saya%20mau%20daftar%20HiFi%2075Mbps" class="btn-order">Daftar Sekarang</a>
-                </div>
-
-                <div class="card card-purple">
-                    <div class="speed-label">300 Mbps</div>
-                    <div class="price-main">Rp 382.950<span>/bln</span></div>
-                    <div class="price-sub">Promo: 7 Bln Rp 1.914.750<br>12 Bln Rp 3.063.500</div>
-                    <ul class="features">
-                        <li>Low Latency Gaming</li>
-                        <li>Termasuk PPN 11%</li>
-                        <li>Prioritas Bandwidth</li>
-                        <li>Free Catchplay+</li>
-                        <li>Free Vision Plus</li>
-                    </ul>
-                    <a href="https://wa.me/6285775347426?text=Halo%20Admin,%20saya%20mau%20daftar%20HiFi%20300Mbps" class="btn-order">Daftar Sekarang</a>
-                </div>
-
-                <div class="card card-gold">
-                    <div class="speed-label">1 Gbps</div>
-                    <div class="price-main">Rp 1.110.000<span>/bln</span></div>
-                    <div class="price-sub">Promo: 7 Bln Rp 5.550.000<br>12 Bln Rp 8.880.000</div>
-                    <ul class="features">
-                        <li>Kecepatan Dewa</li>
-                        <li>Termasuk PPN 11%</li>
-                        <li>Cafe / Kantor / VVIP</li>
-                        <li>Free Catchplay+</li>
-                        <li>Free Vision Plus</li>
-                    </ul>
-                    <a href="https://wa.me/6285775347426?text=Halo%20Admin,%20saya%20mau%20daftar%20HiFi%201Gbps" class="btn-order">Daftar Sekarang</a>
-                </div>
+        <div class="grid">
+            <div class="card card-grey">
+                <div class="speed-label">50 Mbps</div>
+                <div class="price-main">Rp 271.950<span>/bln</span></div>
+                <div class="price-sub">Promo Tahunan: Rp 2.175.500 <br>(Hemat 2 Bulan)</div>
+                <ul class="features">
+                    <li>100% Fiber Optic</li>
+                    <li>Unlimited Tanpa FUP</li>
+                    <li>Termasuk PPN 11%</li>
+                    <li>Gratis Biaya Pasang</li>
+                    <li>Ideal untuk 1-4 User</li>
+                </ul>
+                <a href="https://wa.me/6285775347426?text=Halo%20Indosat%20HiFi,%20saya%20mau%20daftar%20paket%2050Mbps" class="btn-order">Pilih Paket</a>
             </div>
+
+            <div class="card card-blue">
+                <div class="speed-label">75 Mbps</div>
+                <div class="price-main">Rp 305.250<span>/bln</span></div>
+                <div class="price-sub">Promo Tahunan: Rp 2.442.500 <br>(Paling Populer)</div>
+                <ul class="features">
+                    <li>Kecepatan Simetris</li>
+                    <li>Unlimited Tanpa FUP</li>
+                    <li>Termasuk PPN 11%</li>
+                    <li>Gratis Biaya Pasang</li>
+                    <li>Ideal untuk 5-8 User</li>
+                </ul>
+                <a href="https://wa.me/6285775347426?text=Halo%20Indosat%20HiFi,%20saya%20mau%20daftar%20paket%2075Mbps" class="btn-order">Pilih Paket</a>
+            </div>
+
+            <div class="card card-purple">
+                <div class="speed-label">300 Mbps</div>
+                <div class="price-main">Rp 382.950<span>/bln</span></div>
+                <div class="price-sub">Promo Tahunan: Rp 3.063.500 <br>(High Performance)</div>
+                <ul class="features">
+                    <li>Low Latency Gaming</li>
+                    <li>Unlimited Tanpa FUP</li>
+                    <li>Termasuk PPN 11%</li>
+                    <li>Gratis Biaya Pasang</li>
+                    <li>Free Catchplay+</li>
+                </ul>
+                <a href="https://wa.me/6285775347426?text=Halo%20Indosat%20HiFi,%20saya%20mau%20daftar%20paket%20300Mbps" class="btn-order">Pilih Paket</a>
+            </div>
+
+            <div class="card card-gold">
+                <div class="speed-label">1 Gbps</div>
+                <div class="price-main">Rp 1.110.000<span>/bln</span></div>
+                <div class="price-sub">Layanan Premium VVIP <br>Prioritas Bandwidth</div>
+                <ul class="features">
+                    <li>Koneksi Tercepat</li>
+                    <li>Tanpa Batas FUP</li>
+                    <li>Free Router High-End</li>
+                    <li>Free Layanan Streaming</li>
+                    <li>Layanan Support VVIP</li>
+                </ul>
+                <a href="https://wa.me/6285775347426?text=Halo%20Indosat%20HiFi,%20saya%20mau%20daftar%20paket%201Gbps" class="btn-order">Daftar VVIP</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="comparison-safe">
+        <div class="comparison-container">
+            <h3>Mengapa Memilih Indosat HiFi di Tahun 2026?</h3>
+            <p>
+                Sebagai salah satu provider internet fiber terbaik di Indonesia, <strong>Indosat HiFi</strong> menawarkan keunggulan yang tidak dimiliki kompetitor seperti <strong>IndiHome</strong> atau <strong>First Media</strong>, yaitu kebijakan 100% Tanpa FUP (Fair Usage Policy). Jika Anda membandingkan dengan <strong>Biznet</strong>, <strong>MyRepublic</strong>, atau <strong>XL Satu</strong>, Indosat HiFi memberikan stabilitas jaringan yang didukung oleh infrastruktur global Indosat Ooredoo Hutchison. Layanan kami sering menjadi pilihan utama bagi mereka yang mencari alternatif WiFi murah selain <strong>Oxygen.id</strong>, <strong>CBN</strong>, atau <strong>MNC Play</strong> untuk kebutuhan WFH dan Gaming tanpa lag.
+            </p>
         </div>
     </section>
 
     <section class="area-section">
-        <div class="container">
-            <h2>Jangkauan Layanan <span>Fiber Optic</span> Nasional:</h2>
-            <div class="area-grid">
-                <span onclick="cekArea('Bandung')">Bandung</span>
-                <span onclick="cekArea('Banyumas')">Banyumas</span>
-                <span onclick="cekArea('Bekasi')">Bekasi</span>
-                <span onclick="cekArea('Bogor')">Bogor</span>
-                <span onclick="cekArea('Cianjur')">Cianjur</span>
-                <span onclick="cekArea('Denpasar')">Denpasar</span>
-                <span onclick="cekArea('Depok')">Depok</span>
-                <span onclick="cekArea('Jakarta')">Jakarta</span>
-                <span onclick="cekArea('Jambi')">Jambi</span>
-                <span onclick="cekArea('Karanganyar')">Karanganyar</span>
-                <span onclick="cekArea('Karawang')">Karawang</span>
-                <span onclick="cekArea('Kediri')">Kediri</span>
-                <span onclick="cekArea('Klaten')">Klaten</span>
-                <span onclick="cekArea('Mojokerto')">Mojokerto</span>
-                <span onclick="cekArea('Palembang')">Palembang</span>
-                <span onclick="cekArea('Pekalongan')">Pekalongan</span>
-                <span onclick="cekArea('Semarang')">Semarang</span>
-                <span onclick="cekArea('Solo')">Solo</span>
-                <span onclick="cekArea('Sukabumi')">Sukabumi</span>
-                <span onclick="cekArea('Surabaya')">Surabaya</span>
-                <span onclick="cekArea('Tangerang')">Tangerang</span>
-                <span onclick="cekArea('Tegal')">Tegal</span>
-                <span onclick="cekArea('Yogyakarta')">Yogyakarta</span>
-                <span onclick="cekArea('Bali')">Bali</span>
-                <span onclick="cekArea('Medan')">Medan</span>
-                <span onclick="cekArea('Kota Metro Lampung')">Lampung</span>
-                <span onclick="cekArea('Sumedang')">Sumedang</span>
-            </div>
-        </div>
-    </section>
-
-    <section class="faq-section">
-        <h2>Sering Ditanyakan (FAQ)</h2>
-        <div class="faq-item">
-            <p class="q">Apakah benar unlimited tanpa batas kuota (FUP)?</p>
-            <p class="a">Betul, Indosat HiFi menggunakan teknologi True Fiber Optic yang memberikan kebebasan internetan sepuasnya tanpa penurunan kecepatan di akhir bulan.</p>
-        </div>
-        <div class="faq-item">
-            <p class="q">Apakah layanan customer service 24 jam?</p>
-            <p class="a">Ya, layanan kami tersedia 24/7 tanpa henti sehingga jika ada kendala Anda tidak perlu khawatir penanganan akan memakan waktu lama.</p>
-        </div>
-        <div class="faq-item">
-            <p class="q">Berapa lama proses pemasangan (instalasi)?</p>
-            <p class="a">Proses instalasi dilakukan oleh tim teknisi resmi IOH dalam waktu rata-rata 1-3 hari kerja setelah pendaftaran divalidasi.</p>
-        </div>
-        <div class="faq-item">
-            <p class="q">Apakah biaya bulanan sudah termasuk pajak?</p>
-            <p class="a">Harga yang tertera pada paket kami sudah termasuk PPN 11%, sehingga Anda tidak perlu khawatir dengan biaya tambahan saat penagihan.</p>
+        <h2>Cek Area <span>Fiber Optic</span> Kami:</h2>
+        <div class="area-grid">
+            <span onclick="cekArea('Jakarta')">Jakarta</span>
+            <span onclick="cekArea('Bogor')">Bogor</span>
+            <span onclick="cekArea('Depok')">Depok</span>
+            <span onclick="cekArea('Tangerang')">Tangerang</span>
+            <span onclick="cekArea('Bekasi')">Bekasi</span>
+            <span onclick="cekArea('Bandung')">Bandung</span>
+            <span onclick="cekArea('Surabaya')">Surabaya</span>
+            <span onclick="cekArea('Medan')">Medan</span>
+            <span onclick="cekArea('Semarang')">Semarang</span>
+            <span onclick="cekArea('Yogyakarta')">Yogyakarta</span>
+            <span onclick="cekArea('Palembang')">Palembang</span>
+            <span onclick="cekArea('Denpasar')">Denpasar</span>
         </div>
     </section>
 
     <footer>
-        <div class="footer-content">
-            <img src="logo-hifi-footer.png" alt="Logo Indosat HiFi Footer" class="footer-logo"><br>
-            <strong>Sales Mitra Resmi Indosat HiFi Nasional</strong><br>
-            Website ini adalah portal pemasaran resmi mitra digital Indosat HiFi. Seluruh proses pendaftaran resmi melalui sistem <strong>Indosat Ooredoo Hutchison</strong>.
-            <p style="margin-top: 15px;">&copy; 2026 Indosat HiFi Digital Marketing. Semua hak cipta dilindungi.</p>
-        </div>
+        <img src="logo-hifi.png" alt="Indosat HiFi" class="footer-logo">
+        <p><strong>Sales Mitra Resmi Indosat HiFi Nasional</strong></p>
+        <p>Pendaftaran resmi melalui sistem IOH (Indosat Ooredoo Hutchison). Proses cepat dan aman.</p>
+        <p style="margin-top:20px; font-size: 12px; opacity: 0.7;">&copy; 2026 Indosat HiFi Digital Marketing. All Rights Reserved.</p>
     </footer>
 
-    <div style="display:none; visibility:hidden; height:0; width:0; overflow:hidden;" aria-hidden="true">
-        <h2>Alternatif Terbaik Provider Internet Indonesia 2026</h2>
-        <p>Bandingkan Indosat HiFi dengan IndiHome, Biznet, MyRepublic, First Media, XL Satu, Oxygen.id, dan CBN. Dapatkan WiFi murah tanpa FUP untuk rumah di Jakarta, Bandung, Surabaya, dan Medan. Pasang internet cepat lebih stabil dari MNC Play dan Telkomsel Orbit.</p>
-    </div>
-
     <div class="mobile-order-bar">
-        <span>Pasang Indosat HiFi Sekarang!</span>
+        <span>Harga mulai Rp 245rb-an</span>
         <a href="https://wa.me/6285775347426">DAFTAR</a>
     </div>
 
-    <a href="https://wa.me/6285775347426" class="wa-float" target="_blank" aria-label="Chat WhatsApp">💬</a>
+    <a href="https://wa.me/6285775347426" class="wa-float" target="_blank">W</a>
 
     <script>
         function prosesCek() {
             const alamat = document.getElementById('alamatInput').value;
-            if (alamat.trim() === "") { 
-                alert("Mohon masukkan alamat lengkap Anda."); 
-                return; 
-            }
-            window.open("https://wa.me/6285775347426?text=Halo%20Admin,%20saya%20ingin%20cek%20jangkauan%20area%20Indosat%20HiFi%20di%20alamat:%20" + encodeURIComponent(alamat), "_blank");
+            if (alamat.trim() === "") { alert("Mohon masukkan alamat lengkap Anda."); return; }
+            window.open("https://wa.me/6285775347426?text=Halo%20Admin,%20saya%20ingin%20cek%20area%20Indosat%20HiFi:%20" + encodeURIComponent(alamat), "_blank");
         }
-
         function cekArea(kota) {
-            window.open("https://wa.me/6285775347426?text=Halo%20Admin,%20saya%20ingin%20tanya%20ketersediaan%20jaringan%20Indosat%20HiFi%20untuk%20wilayah%20" + encodeURIComponent(kota), "_blank");
+            window.open("https://wa.me/6285775347426?text=Halo%20Admin,%20apakah%20area%20" + encodeURIComponent(kota) + "%20sudah%20tercover%20Indosat%20HiFi?", "_blank");
         }
     </script>
 </body>
