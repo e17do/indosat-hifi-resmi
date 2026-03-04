@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://e17do.github.io/indosat-hifi-resmi/sitemap.xml
