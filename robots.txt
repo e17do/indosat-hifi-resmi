@@ -1,4 +1,16 @@
 User-agent: *
 Allow: /
+Crawl-delay: 1
+
+# Prioritas tinggi untuk bot mesin pencari
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Mengizinkan bot AI untuk referensi jawaban pencarian pintar
+User-agent: GPTBot
+Allow: /
 
 Sitemap: https://e17do.github.io/indosat-hifi-resmi/sitemap.xml
