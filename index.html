@@ -79,8 +79,34 @@ nav:after{
 .logo-container{display:block;height:82px}.main-logo{height:82px;width:auto;display:block;object-fit:contain}
 .nav-links{display:flex;align-items:stretch;height:100%;gap:44px;margin-left:40px}.nav-links a{height:100%;display:flex;align-items:center;text-decoration:none;color:#151515;font-weight:700;font-size:17px;position:relative}.nav-links a.active,.nav-links a:hover{color:var(--red)}.nav-links a.active:after{content:"";position:absolute;bottom:18px;left:0;right:0;height:3px;background:var(--red);border-radius:3px}
 .nav-cta{background:var(--red);color:#fff!important;padding:15px 25px;border-radius:12px;height:auto!important;margin-left:auto;align-self:center}.nav-cta:after{display:none!important}
-.hero{min-height:292px;position:relative;overflow:hidden;background:#e70655;color:#fff;padding:38px 5.6% 28px;display:flex;align-items:flex-start}
-.hero:after{content:"";position:absolute;inset:0;width:100%;height:100%;background-image:url('hero-house-reference.png');background-size:100% 100%;background-position:center;background-repeat:no-repeat;mix-blend-mode:normal;pointer-events:none}
+.hero{
+  min-height:430px;
+  height:430px;
+  position:relative;
+  overflow:hidden;
+  background:#e70655;
+  color:#fff;
+  padding:38px 5.6% 28px;
+  display:flex;
+  align-items:flex-start;
+  margin:0;
+}
+.hero:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  background-image:url('hero-house-reference.png');
+  background-size:100% 100%;
+  background-position:center;
+  background-repeat:no-repeat;
+  mix-blend-mode:normal;
+  pointer-events:none;
+
+  /* potong bagian putih di bawah gambar */
+  clip-path:inset(0 0 12px 0);
+}
 .hero-content{position:relative;z-index:2;max-width:550px}.hero h1{font-size:43px;line-height:1.08;font-weight:900;margin-bottom:10px;letter-spacing:-1px}.hero h2{font-size:23px;line-height:1.2;margin-bottom:15px}.hero p{font-size:18px;line-height:1.45;max-width:550px;margin-bottom:21px}.signals{display:flex;gap:12px;flex-wrap:wrap}.signal{background:#fff;color:var(--red);padding:10px 25px;border-radius:30px;font-size:16px;font-weight:800;box-shadow:0 2px 4px rgba(0,0,0,.05)}
 .hero-price{position:relative;z-index:3;margin:13px 0 0 72px;width:294px;border:2px solid rgba(255,255,255,.7);border-radius:18px;padding:22px 27px;background:rgba(120,0,0,.16);backdrop-filter:blur(1px)}.hero-price .small{font-size:17px;font-weight:800}.hero-price .price{font-size:31px;font-weight:900;white-space:nowrap;margin:9px 0}.hero-price .price span{font-size:14px}.hero-price .note{font-size:15px;font-weight:700;line-height:1.3}
 .pricing{background:#fff;padding:28px 0 30px}.pricing-heading{text-align:center;padding:0 20px 22px;position:relative;z-index:5}.pricing-heading h2{font-size:34px;color:var(--navy);font-weight:900;line-height:1.1;margin:0 0 6px;letter-spacing:.3px;display:inline-block;position:relative}
@@ -163,19 +189,24 @@ footer{background:#cf0d75;color:#fff;text-align:center;padding:38px 20px 32px;bo
         flex-shrink:0;
     }
 
-    .hero{
-        min-height:500px;
-        padding:27px 20px;
-        display:block;
-    }
+.hero{
+    min-height:560px;
+    height:560px;
+    padding:27px 20px;
+    display:block;
+    margin:0;
+}
 
-    .hero:after{
-        width:100%;
-        height:260px;
-        top:auto;
-        bottom:0;
-        opacity:.72;
-    }
+.hero:after{
+    width:100%;
+    height:100%;
+    top:0;
+    bottom:auto;
+    opacity:.72;
+
+    background-size:cover;
+    background-position:center bottom;
+}
 
     .hero-content{
         max-width:none;
@@ -509,6 +540,1598 @@ footer{background:#cf0d75;color:#fff;text-align:center;padding:38px 20px 32px;bo
 .seo-hub-card em{display:inline-block;margin-top:9px;color:var(--red);font-style:normal;font-size:12px;font-weight:800}
 @media(max-width:700px){.seo-hub{padding:0 14px 8px}.seo-hub-grid{grid-template-columns:1fr}.seo-hub-head h2{font-size:24px}.seo-hub-card{padding:16px}}
 
+
+/* =========================================================
+   CAROUSEL — FULL WIDTH TANPA CELAH ANTAR SLIDE
+   ========================================================= */
+
+.info-carousel{
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  background:#07152f;
+  padding:0;
+  margin:0;
+}
+
+.info-track{
+  display:flex;
+  width:100%;
+  margin:0;
+  padding:0;
+  gap:0;
+
+  transform:translate3d(0,0,0);
+  transition:transform .65s cubic-bezier(.22,.61,.36,1);
+
+  will-change:transform;
+}
+
+.info-slide{
+  flex:0 0 100%;
+  width:100%;
+  min-width:100%;
+
+  margin:0;
+  padding:0;
+
+  box-sizing:border-box;
+
+  position:relative;
+  overflow:hidden;
+
+  display:block;
+}
+
+/* Slide 1 harus benar-benar memenuhi lebar slide */
+.carousel-slide .hero{
+  width:100%;
+  min-width:100%;
+
+  margin:0;
+  box-sizing:border-box;
+
+  position:relative;
+}
+
+/* Jangan ada ruang putih di bawah hero */
+.info-slide:first-child{
+  background:#e70655;
+}
+
+.info-slide:first-child .hero{
+  margin:0;
+}
+.carousel-inner{width:min(1225px,calc(100% - 40px));min-height:292px;margin:0 auto;padding:34px 0 42px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+
+/* =========================================================
+   SLIDE 2 — DARI JARINGAN FIBER KE WI-FI
+   TECHNOLOGY / FIBER OPTIC PREMIUM STYLE
+   ========================================================= */
+
+.slide-device{
+  min-height:430px;
+  position:relative;
+  overflow:hidden;
+  color:#fff;
+
+  background:
+    radial-gradient(
+      ellipse at 15% 55%,
+      rgba(0,210,255,.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      ellipse at 82% 25%,
+      rgba(0,120,255,.20),
+      transparent 30%
+    ),
+    linear-gradient(
+      115deg,
+      #07152f 0%,
+      #101d46 32%,
+      #15275b 58%,
+      #24154f 100%
+    );
+}
+
+/* glow jaringan di background */
+.slide-device:before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+    radial-gradient(
+      circle at 25% 75%,
+      rgba(0,220,255,.20),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 75% 15%,
+      rgba(255,0,130,.16),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 55% 55%,
+      rgba(45,130,255,.10),
+      transparent 35%
+    );
+
+  pointer-events:none;
+}
+
+/* lingkaran teknologi */
+.slide-device:after{
+  content:"";
+  position:absolute;
+
+  width:850px;
+  height:850px;
+
+  right:-420px;
+  top:-430px;
+
+  border-radius:50%;
+
+  border:1px solid rgba(0,215,255,.12);
+
+  box-shadow:
+    0 0 0 55px rgba(0,215,255,.025),
+    0 0 0 110px rgba(255,0,140,.025),
+    0 0 0 170px rgba(255,205,0,.018);
+
+  pointer-events:none;
+}
+
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+
+.device-layout{
+  width:min(1320px,calc(100% - 32px));
+  min-height:430px;
+
+  margin:0 auto;
+
+  display:grid;
+
+  grid-template-columns:
+    minmax(470px,1.02fr)
+    minmax(520px,1fr);
+
+  gap:22px;
+
+  align-items:center;
+
+  position:relative;
+  z-index:2;
+
+  box-sizing:border-box;
+
+  padding:18px 0 30px;
+}
+
+
+/* =========================================================
+   PANEL KIRI
+   ========================================================= */
+
+.network-visual{
+  min-height:332px;
+
+  border-radius:24px;
+
+  position:relative;
+  overflow:hidden;
+
+  padding:28px 34px;
+
+  box-sizing:border-box;
+
+  color:#fff;
+
+  background:
+    radial-gradient(
+      circle at 12% 75%,
+      rgba(0,230,255,.24),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255,0,135,.18),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #08152f 0%,
+      #111e4a 45%,
+      #182d67 72%,
+      #30134f 100%
+    );
+
+  border:1px solid rgba(255,255,255,.16);
+
+  box-shadow:
+    0 25px 55px rgba(0,0,0,.35),
+    inset 0 0 45px rgba(0,180,255,.07);
+}
+
+
+/* grid teknologi */
+.network-visual:before{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  background-image:
+    linear-gradient(
+      rgba(80,180,255,.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(80,180,255,.08) 1px,
+      transparent 1px
+    );
+
+  background-size:42px 42px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent,
+      black 25%,
+      black 80%,
+      transparent
+    );
+
+  opacity:.55;
+
+  pointer-events:none;
+}
+
+
+/* glow besar */
+.network-visual:after{
+  content:"";
+
+  position:absolute;
+
+  width:430px;
+  height:430px;
+
+  right:-180px;
+  bottom:-250px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0,210,255,.20),
+      rgba(0,120,255,.07) 35%,
+      transparent 70%
+    );
+
+  pointer-events:none;
+}
+
+
+.network-visual .visual-content{
+  position:relative;
+  z-index:5;
+}
+
+
+/* =========================================================
+   KICKER
+   ========================================================= */
+
+.visual-kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+
+  font-size:10px;
+  font-weight:900;
+
+  letter-spacing:1.8px;
+
+  color:#7ce9ff;
+
+  margin-bottom:9px;
+
+  text-shadow:
+    0 0 12px rgba(0,220,255,.45);
+}
+
+.visual-kicker:before{
+  content:"";
+
+  width:28px;
+  height:3px;
+
+  border-radius:5px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #00e5ff,
+      #ffd200
+    );
+
+  box-shadow:
+    0 0 10px rgba(0,220,255,.45);
+}
+
+
+/* =========================================================
+   JUDUL
+   ========================================================= */
+
+.network-visual h2{
+  margin:0 0 8px;
+
+  color:#fff;
+
+  font-size:28px;
+  line-height:1.12;
+
+  font-weight:900;
+
+  max-width:520px;
+
+  text-shadow:
+    0 3px 18px rgba(0,0,0,.35);
+}
+
+.network-visual .visual-desc{
+  margin:0;
+
+  color:rgba(255,255,255,.78);
+
+  font-size:11px;
+  line-height:1.55;
+
+  max-width:500px;
+}
+
+
+/* =========================================================
+   BADGE KANAN ATAS
+   ========================================================= */
+
+.speed-badge{
+  position:absolute;
+
+  right:22px;
+  top:20px;
+
+  z-index:6;
+
+  padding:7px 11px;
+
+  border-radius:20px;
+
+  border:1px solid rgba(0,225,255,.35);
+
+  background:
+    rgba(0,190,255,.10);
+
+  box-shadow:
+    0 0 18px rgba(0,210,255,.12),
+    inset 0 0 15px rgba(255,255,255,.04);
+
+  backdrop-filter:blur(10px);
+
+  font-size:9px;
+  font-weight:900;
+
+  color:#dffaff;
+
+  letter-spacing:.4px;
+}
+
+.speed-badge b{
+  color:#ffd52f;
+
+  text-shadow:
+    0 0 10px rgba(255,210,0,.55);
+}
+
+
+/* =========================================================
+   FIBER SCENE
+   ========================================================= */
+
+.fiber-scene{
+  position:relative;
+
+  height:195px;
+
+  margin-top:8px;
+}
+
+
+/* =========================================================
+   KABEL FIBER
+   ========================================================= */
+
+.fiber-cable{
+  position:absolute;
+
+  left:-15px;
+  right:-15px;
+
+  height:100px;
+
+  top:40px;
+
+  overflow:visible;
+
+  filter:
+    drop-shadow(0 0 5px rgba(0,210,255,.55))
+    drop-shadow(0 0 12px rgba(0,130,255,.35));
+}
+
+.fiber-cable path{
+  fill:none;
+
+  stroke-linecap:round;
+}
+
+
+/* kabel dasar */
+.fiber-cable .c1{
+  stroke:
+    rgba(0,220,255,.15);
+
+  stroke-width:12;
+}
+
+
+/* kabel utama */
+.fiber-cable .c2{
+  stroke:
+    url(#fiberGrad);
+
+  stroke-width:4;
+
+  filter:
+    drop-shadow(0 0 5px rgba(0,220,255,.65));
+}
+
+
+/* data berjalan */
+.fiber-cable .c3{
+  stroke:
+    #ffe03b;
+
+  stroke-width:2;
+
+  stroke-dasharray:6 11;
+
+  animation:
+    fiberFlow 1.2s linear infinite;
+
+  filter:
+    drop-shadow(0 0 6px rgba(255,220,0,.9));
+}
+
+@keyframes fiberFlow{
+  to{
+    stroke-dashoffset:-34;
+  }
+}
+
+
+/* =========================================================
+   NODE FIBER / ONT / WI-FI
+   ========================================================= */
+
+.flow-node{
+  position:absolute;
+
+  top:60px;
+
+  width:102px;
+  height:78px;
+
+  border-radius:17px;
+
+  border:
+    1px solid rgba(110,220,255,.35);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.13),
+      rgba(30,80,150,.12)
+    );
+
+  box-shadow:
+    inset 0 0 18px rgba(0,210,255,.07),
+    0 15px 32px rgba(0,0,0,.28),
+    0 0 18px rgba(0,180,255,.08);
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
+
+  backdrop-filter:blur(9px);
+
+  box-sizing:border-box;
+
+  z-index:5;
+}
+
+
+/* posisi node */
+
+.flow-node:nth-of-type(1){
+  left:2%;
+}
+
+.flow-node:nth-of-type(2){
+  left:calc(50% - 51px);
+}
+
+.flow-node:nth-of-type(3){
+  right:2%;
+}
+
+
+/* icon node */
+
+.flow-node .node-icon{
+  width:30px;
+  height:30px;
+
+  margin-bottom:5px;
+
+  border-radius:8px;
+
+  border:
+    2px solid rgba(255,255,255,.9);
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  font-size:12px;
+
+  font-weight:900;
+
+  color:#8cecff;
+
+  background:
+    rgba(0,180,255,.08);
+
+  box-shadow:
+    0 0 12px rgba(0,210,255,.15);
+}
+
+
+/* ONT kuning */
+
+.flow-node:nth-of-type(2) .node-icon{
+  border-color:#ffd33b;
+
+  color:#ffd33b;
+
+  box-shadow:
+    0 0 0 4px rgba(255,202,50,.07),
+    0 0 15px rgba(255,205,0,.25);
+}
+
+
+/* teks node */
+
+.flow-node strong{
+  font-size:12px;
+
+  color:#fff;
+
+  text-shadow:
+    0 2px 7px rgba(0,0,0,.4);
+}
+
+.flow-node small{
+  font-size:8px;
+
+  color:
+    rgba(190,235,255,.68);
+
+  margin-top:2px;
+}
+
+
+/* =========================================================
+   SPEED INDICATOR
+   ========================================================= */
+
+.speed-lines{
+  position:absolute;
+
+  right:2%;
+  bottom:2px;
+
+  display:flex;
+
+  align-items:flex-end;
+
+  gap:4px;
+
+  height:38px;
+
+  opacity:.9;
+
+  z-index:5;
+}
+
+.speed-lines i{
+  display:block;
+
+  width:5px;
+
+  border-radius:4px 4px 0 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      #00e5ff,
+      #ffd21c
+    );
+
+  box-shadow:
+    0 0 8px rgba(0,210,255,.55);
+
+  animation:
+    speedPulse 1.1s ease-in-out infinite alternate;
+}
+
+.speed-lines i:nth-child(1){
+  height:10px;
+}
+
+.speed-lines i:nth-child(2){
+  height:18px;
+  animation-delay:.12s;
+}
+
+.speed-lines i:nth-child(3){
+  height:27px;
+  animation-delay:.24s;
+}
+
+.speed-lines i:nth-child(4){
+  height:36px;
+  animation-delay:.36s;
+}
+
+@keyframes speedPulse{
+  from{
+    transform:scaleY(.72);
+    opacity:.45;
+  }
+
+  to{
+    transform:scaleY(1);
+    opacity:1;
+  }
+}
+
+
+/* =========================================================
+   PANEL KANAN — 4 KARTU
+   ========================================================= */
+
+.device-panel{
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:14px;
+
+  position:relative;
+}
+
+
+/* kartu teknologi */
+
+.device-card{
+  display:grid;
+
+  grid-template-columns:78px 1fr;
+
+  align-items:center;
+
+  gap:13px;
+
+  min-height:135px;
+
+  padding:14px 15px;
+
+  box-sizing:border-box;
+
+  position:relative;
+
+  overflow:hidden;
+
+  border-radius:18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(15,30,60,.92),
+      rgba(19,48,84,.72)
+    );
+
+  border:
+    1px solid rgba(110,220,255,.28);
+
+  box-shadow:
+    0 15px 30px rgba(0,0,0,.28),
+    inset 0 0 20px rgba(0,210,255,.035);
+
+  backdrop-filter:blur(12px);
+
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    border-color .22s ease;
+}
+
+
+/* garis warna atas */
+
+.device-card:before{
+  content:"";
+
+  position:absolute;
+
+  left:0;
+  right:0;
+  top:0;
+
+  height:4px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ffd200,
+      #ff7a00
+    );
+}
+
+
+/* kartu 2 pink */
+
+.device-card:nth-child(2){
+  border-color:
+    rgba(255,80,180,.30);
+}
+
+.device-card:nth-child(2):before{
+  background:
+    linear-gradient(
+      90deg,
+      #ff1486,
+      #ff75c1
+    );
+}
+
+
+/* kartu 3 cyan */
+
+.device-card:nth-child(3){
+  border-color:
+    rgba(0,225,255,.32);
+}
+
+.device-card:nth-child(3):before{
+  background:
+    linear-gradient(
+      90deg,
+      #00e8ff,
+      #00a5ff
+    );
+}
+
+
+/* kartu 4 biru */
+
+.device-card:nth-child(4){
+  border-color:
+    rgba(65,155,255,.32);
+}
+
+.device-card:nth-child(4):before{
+  background:
+    linear-gradient(
+      90deg,
+      #31c7ff,
+      #177eff
+    );
+}
+
+
+/* glow sudut */
+
+.device-card:after{
+  content:"";
+
+  position:absolute;
+
+  right:-30px;
+  top:-30px;
+
+  width:100px;
+  height:100px;
+
+  border-radius:50%;
+
+  background:
+    rgba(0,210,255,.08);
+
+  filter:blur(2px);
+}
+
+.device-card:nth-child(2):after{
+  background:rgba(255,0,135,.09);
+}
+
+.device-card:nth-child(3):after{
+  background:rgba(0,225,255,.10);
+}
+
+.device-card:nth-child(4):after{
+  background:rgba(35,120,255,.10);
+}
+
+
+/* hover */
+
+.device-card:hover{
+  transform:
+    translateY(-5px);
+
+  box-shadow:
+    0 22px 40px rgba(0,0,0,.35),
+    0 0 22px rgba(0,200,255,.10);
+
+  border-color:
+    rgba(255,255,255,.48);
+}
+
+
+/* =========================================================
+   ICON DEVICE
+   ========================================================= */
+
+.device-icon{
+  width:66px;
+  height:66px;
+
+  border-radius:15px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #19243b,
+      #0b1428
+    );
+
+  border:
+    1px solid rgba(130,220,255,.18);
+
+  position:relative;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  box-shadow:
+    inset 0 0 20px rgba(0,200,255,.08),
+    0 8px 20px rgba(0,0,0,.25);
+}
+
+
+/* glow icon */
+
+.device-icon:after{
+  content:"";
+
+  position:absolute;
+
+  width:5px;
+  height:5px;
+
+  border-radius:50%;
+
+  left:22px;
+  top:42px;
+
+  background:#00e5ff;
+
+  box-shadow:
+    9px 0 0 #ffd22a,
+    18px 0 0 #ff348f;
+
+  filter:
+    drop-shadow(0 0 4px rgba(0,220,255,.8));
+}
+
+
+/* ONT */
+
+.device-card:nth-child(1) .device-icon:before{
+  content:"";
+
+  position:absolute;
+
+  left:14px;
+  right:14px;
+
+  top:24px;
+
+  height:25px;
+
+  border-radius:5px;
+
+  border:
+    1px solid #7b8da7;
+
+  background:
+    linear-gradient(
+      180deg,
+      #3c506c,
+      #17263e
+    );
+
+  box-shadow:
+    0 0 12px rgba(0,210,255,.12);
+}
+
+
+/* Router */
+
+.device-card:nth-child(2) .device-icon:before{
+  content:"";
+
+  position:absolute;
+
+  left:16px;
+  right:16px;
+
+  top:28px;
+
+  height:25px;
+
+  border-radius:6px;
+
+  border:
+    1px solid #7e92ae;
+
+  background:
+    linear-gradient(
+      180deg,
+      #344863,
+      #15233b
+    );
+}
+
+.device-card:nth-child(2) .device-icon:after{
+  width:3px;
+  height:20px;
+
+  left:25px;
+  top:8px;
+
+  border-radius:3px;
+
+  background:#7f92ad;
+
+  box-shadow:
+    13px 0 0 #7f92ad,
+    6px 39px 0 #19d47a;
+
+  filter:
+    drop-shadow(0 0 4px rgba(0,220,255,.4));
+}
+
+
+/* Fiber optic */
+
+.device-card:nth-child(3) .device-icon:before{
+  content:"";
+
+  position:absolute;
+
+  width:39px;
+  height:39px;
+
+  left:13px;
+  top:13px;
+
+  border:
+    4px solid #ff1688;
+
+  border-radius:50%;
+
+  background:transparent;
+
+  transform:rotate(-35deg);
+
+  box-shadow:
+    inset 0 0 0 5px #ffd32b,
+    0 0 14px rgba(255,0,130,.35);
+}
+
+.device-card:nth-child(3) .device-icon:after{
+  display:none;
+}
+
+
+/* Jaringan rumah */
+
+.device-card:nth-child(4) .device-icon:before{
+  content:"";
+
+  position:absolute;
+
+  left:18px;
+  right:18px;
+
+  top:17px;
+
+  height:35px;
+
+  border-radius:3px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #087bd8,
+      #0c4eaa
+    );
+
+  box-shadow:
+    inset 0 0 0 2px #09172c,
+    0 0 12px rgba(0,130,255,.28);
+}
+
+.device-card:nth-child(4) .device-icon:after{
+  width:4px;
+  height:12px;
+
+  left:28px;
+  top:30px;
+
+  border-radius:1px;
+
+  background:#fff;
+
+  box-shadow:
+    7px 5px 0 #fff,
+    14px -3px 0 #fff;
+
+  filter:
+    drop-shadow(0 0 3px rgba(255,255,255,.8));
+}
+
+
+/* =========================================================
+   TEKS KARTU
+   ========================================================= */
+
+.device-card strong{
+  display:block;
+
+  font-size:14px;
+
+  color:#fff;
+
+  margin-bottom:5px;
+
+  line-height:1.2;
+
+  position:relative;
+  z-index:3;
+
+  text-shadow:
+    0 2px 8px rgba(0,0,0,.35);
+}
+
+.device-card span{
+  display:block;
+
+  font-size:10px;
+
+  line-height:1.48;
+
+  color:
+    rgba(215,238,255,.76);
+
+  position:relative;
+  z-index:3;
+}
+
+
+/* =========================================================
+   CATATAN
+   ========================================================= */
+
+.slide-note{
+  grid-column:1/-1;
+
+  margin:-2px 0 0;
+
+  padding:9px 13px;
+
+  border:
+    1px dashed rgba(0,220,255,.35);
+
+  border-radius:10px;
+
+  text-align:left;
+
+  font-size:9.5px;
+
+  line-height:1.4;
+
+  color:
+    rgba(210,235,255,.70);
+
+  background:
+    rgba(4,18,42,.48);
+
+  box-shadow:
+    inset 0 0 15px rgba(0,210,255,.035);
+}
+/* SLIDE 3 — premium benefits panel */
+/* SLIDE 3 — INDOSAT HiFi TECHNOLOGY / PREMIUM BENEFITS */
+.slide-why{
+  min-height:430px;
+  position:relative;
+  overflow:hidden;
+  color:#fff;
+  background:
+    radial-gradient(circle at 15% 65%,rgba(255,215,0,.28) 0%,transparent 28%),
+    radial-gradient(circle at 82% 25%,rgba(255,0,102,.35) 0%,transparent 30%),
+    radial-gradient(circle at 55% 90%,rgba(0,205,255,.25) 0%,transparent 30%),
+    linear-gradient(115deg,#141b45 0%,#211c57 28%,#650f55 58%,#e0005b 82%,#ffbd00 100%);
+}
+
+/* cahaya kuning kiri */
+.slide-why:before{
+  content:"";
+  position:absolute;
+  width:650px;
+  height:650px;
+  left:-250px;
+  top:-300px;
+  border-radius:50%;
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,211,0,.38) 0%,
+      rgba(255,191,0,.18) 28%,
+      rgba(255,191,0,.05) 48%,
+      transparent 70%
+    );
+  pointer-events:none;
+}
+
+/* glow magenta + cyan kanan */
+.slide-why:after{
+  content:"";
+  position:absolute;
+  width:700px;
+  height:500px;
+  right:-250px;
+  bottom:-250px;
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(255,0,117,.42) 0%,
+      rgba(255,0,117,.16) 38%,
+      rgba(0,200,255,.12) 58%,
+      transparent 72%
+    );
+  pointer-events:none;
+}
+
+/* garis-garis cahaya seperti jaringan / speed */
+.slide-why .carousel-inner:before{
+  content:"";
+  position:absolute;
+  width:900px;
+  height:180px;
+  right:-180px;
+  top:35px;
+  border-top:2px solid rgba(255,214,0,.22);
+  border-radius:50%;
+  transform:rotate(-13deg);
+  box-shadow:
+    0 22px 0 rgba(255,255,255,.07),
+    0 44px 0 rgba(255,214,0,.12),
+    0 66px 0 rgba(0,213,255,.10);
+  pointer-events:none;
+}
+
+/* titik-titik koneksi */
+.slide-why .carousel-inner:after{
+  content:"";
+  position:absolute;
+  right:8%;
+  top:85px;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#ffd400;
+  box-shadow:
+    95px 30px 0 #ff4b91,
+    180px -15px 0 #00d9ff,
+    260px 65px 0 #ffd400,
+    350px 15px 0 #ff4b91;
+  opacity:.9;
+  pointer-events:none;
+}
+
+.slide-why .carousel-inner{
+  min-height:430px;
+  position:relative;
+  z-index:2;
+}
+
+.slide-why .slide-heading{
+  max-width:1050px;
+  margin-bottom:22px;
+  position:relative;
+  z-index:3;
+}
+
+.slide-why .slide-kicker{
+  color:#ffd43b;
+  text-shadow:0 0 14px rgba(255,211,0,.28);
+}
+
+.slide-why .slide-kicker:before{
+  background:linear-gradient(
+    90deg,
+    #ffd000,
+    #ff7b00,
+    #ff0a78
+  );
+}
+
+.slide-why .slide-heading h2{
+  color:#fff;
+  font-size:31px;
+  text-shadow:0 3px 18px rgba(0,0,0,.25);
+}
+
+.slide-why .slide-heading p{
+  color:rgba(255,255,255,.82);
+}
+
+/* 4 kartu benefit */
+.why-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  position:relative;
+  z-index:4;
+}
+
+/* 4 KARTU BENEFIT — CERAH & BERCAHAYA */
+
+/* Base Kartu 1 (Kuning) */
+.why-card {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  min-height: 148px;
+  box-sizing: border-box;
+  padding: 18px 16px;
+  border-radius: 18px;
+  
+  /* Warna Dasar Kuning Indosat */
+  background: linear-gradient(135deg, #ffcc00 0%, #e6b800 100%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  
+  /* Glow Effect Kuning */
+  box-shadow: 
+    0 10px 25px rgba(255, 204, 0, 0.4),
+    0 0 15px rgba(255, 204, 0, 0.3);
+    
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.why-card:before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 5px;
+  border-radius: 18px 18px 0 0;
+  background: #ffffff;
+}
+
+/* Kartu 2 (Magenta / Merah Indosat) */
+.why-card:nth-child(2) {
+  background: linear-gradient(135deg, #ff0066 0%, #d60052 100%);
+  box-shadow: 
+    0 10px 25px rgba(255, 0, 102, 0.4),
+    0 0 15px rgba(255, 0, 102, 0.3);
+}
+
+/* Kartu 3 (Cyan / Toska) */
+.why-card:nth-child(3) {
+  background: linear-gradient(135deg, #00d9ff 0%, #0099cc 100%);
+  box-shadow: 
+    0 10px 25px rgba(0, 217, 255, 0.4),
+    0 0 15px rgba(0, 217, 255, 0.3);
+}
+
+/* Kartu 4 (Biru Neon) */
+.why-card:nth-child(4) {
+  background: linear-gradient(135deg, #0066ff 0%, #0044cc 100%);
+  box-shadow: 
+    0 10px 25px rgba(0, 102, 255, 0.4),
+    0 0 15px rgba(0, 102, 255, 0.3);
+}
+
+/* Hover Effect */
+.why-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Icon Box Inside Cards */
+.why-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 12px;
+  backdrop-filter: blur(4px);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+}
+
+/* Penyesuaian Teks agar Terbaca Jelas */
+.why-card strong {
+  display: block;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 800;
+  margin: 0 0 6px;
+  line-height: 1.2;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Teks khusus untuk Kartu Kuning pertama agar tetap kontras */
+.why-card:nth-child(1) strong {
+  color: #1a1a1a;
+  text-shadow: none;
+}
+
+.why-card span {
+  display: block;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 11.5px;
+  line-height: 1.4;
+}
+
+.why-card:nth-child(1) span {
+  color: #333333;
+}
+
+.carousel-dots{position:absolute;z-index:10;left:50%;bottom:11px;transform:translateX(-50%);display:flex;gap:7px;padding:6px 9px;border-radius:20px;background:rgba(255,255,255,.92);box-shadow:0 4px 14px rgba(0,0,0,.14)}
+.carousel-dot{width:8px;height:8px;border:0;border-radius:50%;padding:0;background:#c4c8d0;cursor:pointer;transition:.25s ease}
+.carousel-dot.active{width:25px;border-radius:8px;background:var(--red)}
+.carousel-dot:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+
+@media(max-width:900px){
+  .device-layout{grid-template-columns:1fr;gap:14px;min-height:470px;padding:18px 0 38px}
+  .network-visual{min-height:315px;padding:24px 28px}
+  .device-panel{grid-template-columns:1fr 1fr}
+  .slide-device,.slide-why{min-height:470px}
+  .slide-why .carousel-inner{min-height:470px}
+}
+@media(max-width:700px){
+.info-carousel{
+  width:100%;
+  margin:0;
+  padding:0;
+}
+
+.info-track{
+  gap:0;
+  margin:0;
+  padding:0;
+}
+
+.info-slide{
+  min-height:560px;
+  height:560px;
+  margin:0;
+  padding:0;
+}
+
+.carousel-slide .hero{
+  width:100%;
+  min-height:560px;
+  height:560px;
+  margin:0;
+}
+  .carousel-inner{width:100%;min-height:500px;padding:28px 18px 42px;justify-content:center}
+  .slide-heading{margin-bottom:17px}
+  .slide-heading h2{font-size:25px;line-height:1.16}
+  .slide-heading p{font-size:12px;line-height:1.5}
+  .slide-device,.slide-why{min-height:560px}
+  .slide-why .carousel-inner{min-height:540px}
+  .device-layout{width:100%;min-height:560px;display:flex;flex-direction:column;gap:12px;padding:16px 12px 38px}
+  .network-visual{width:100%;min-height:292px;padding:21px 20px;border-radius:19px}
+  .network-visual h2{font-size:23px;max-width:330px}
+  .network-visual .visual-desc{font-size:10px;max-width:330px}
+  .speed-badge{right:16px;top:16px;font-size:8px}
+  .fiber-scene{height:166px;margin-top:5px}
+  .flow-node{width:78px;height:67px;top:56px;border-radius:13px}
+  .flow-node:nth-of-type(2){left:calc(50% - 39px)}
+  .flow-node .node-icon{width:23px;height:23px;font-size:10px;margin-bottom:4px}
+  .flow-node strong{font-size:10px}.flow-node small{font-size:7px}
+  .device-panel{width:100%;grid-template-columns:1fr 1fr;gap:9px}
+  .device-card{grid-template-columns:1fr;gap:7px;min-height:132px;padding:11px 10px;border-radius:14px}
+  .device-icon{width:45px;height:45px;border-radius:12px}
+  .device-icon:before{left:10px;right:10px;top:16px;height:18px}
+  .device-icon:after{left:16px;top:29px}
+  .device-card:nth-child(2) .device-icon:before{left:11px;right:11px;top:17px;height:19px}
+  .device-card:nth-child(2) .device-icon:after{left:18px;top:7px}
+  .device-card:nth-child(3) .device-icon:before{width:27px;height:27px;left:9px;top:9px;border-width:3px;box-shadow:inset 0 0 0 3px #ffcf34}
+  .device-card:nth-child(4) .device-icon:before{left:13px;right:13px;top:11px;height:23px}
+  .device-card:nth-child(4) .device-icon:after{left:19px;top:20px}
+  .device-card strong{font-size:11px;margin-bottom:3px}
+  .device-card span{font-size:8.5px;line-height:1.4}
+  .slide-note{font-size:8px;line-height:1.35;margin-top:0;padding:8px 9px}
+  .slide-why .slide-heading{margin-bottom:18px}
+  .slide-why .slide-heading h2{font-size:24px}
+  .why-card{min-height:125px;padding:13px 10px;border-radius:14px}
+  .why-icon{width:34px;height:34px;border-radius:10px;font-size:16px;margin-bottom:8px}
+  .why-card strong{font-size:11px;margin-bottom:4px}
+  .why-card span{font-size:9px;line-height:1.4}
+  .carousel-dots{bottom:9px}
+}
+@media(max-width:360px){
+  .carousel-inner{padding-left:14px;padding-right:14px}
+  .slide-heading h2,.slide-why .slide-heading h2{font-size:22px}
+  .device-grid,.why-grid{gap:7px}
+  .device-card{padding:10px 8px}
+  .why-card{padding:11px 8px}
+}
+
+
+/* =========================================================
+   SLIDE 1 — HIGH SPEED FIBER DATA TRANSMISSION
+   Animated light/data trails follow the existing house route.
+   The house image itself remains fixed.
+   ========================================================= */
+.hero-data-flow{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  overflow:hidden;
+  mix-blend-mode:screen;
+}
+
+.hero-data-flow svg{
+  position:absolute;
+  width:100%;
+  height:100%;
+  left:0;
+  top:0;
+  overflow:visible;
+}
+
+.hero-data-flow .data-base{
+  fill:none;
+  stroke-linecap:round;
+  opacity:.22;
+}
+
+.hero-data-flow .data-main{
+  fill:none;
+  stroke-linecap:round;
+  stroke-dasharray:14 20;
+  animation:heroFiberRush .72s linear infinite;
+}
+
+.hero-data-flow .data-pulse{
+  fill:none;
+  stroke-linecap:round;
+  stroke-dasharray:3 42;
+  animation:heroFiberPulse .46s linear infinite;
+}
+
+.hero-data-flow .data-pulse.delay1{animation-delay:-.15s}
+.hero-data-flow .data-pulse.delay2{animation-delay:-.30s}
+.hero-data-flow .data-main.delay1{animation-delay:-.24s}
+.hero-data-flow .data-main.delay2{animation-delay:-.48s}
+
+@keyframes heroFiberRush{
+  from{stroke-dashoffset:0}
+  to{stroke-dashoffset:-68}
+}
+
+@keyframes heroFiberPulse{
+  from{stroke-dashoffset:0}
+  to{stroke-dashoffset:-45}
+}
+
+/* Titik data bergerak cepat di lintasan kanan */
+.hero-data-flow .data-dot{
+  fill:#fff;
+  filter:drop-shadow(0 0 5px #fff) drop-shadow(0 0 12px #ffd400);
+  animation:heroDotRush 1.05s linear infinite;
+}
+
+.hero-data-flow .data-dot.d2{animation-delay:-.35s}
+.hero-data-flow .data-dot.d3{animation-delay:-.70s}
+
+@keyframes heroDotRush{
+  0%{opacity:0;transform:translateX(-18px) scale(.45)}
+  12%{opacity:1}
+  72%{opacity:1}
+  100%{opacity:0;transform:translateX(105px) scale(1)}
+}
+
+/* Jangan mengganggu teks hero */
+.hero-content,.hero-price,.signals{position:relative;z-index:3}
+
+@media(max-width:700px){
+  .hero-data-flow{
+    opacity:.9;
+  }
+
+  .hero-data-flow svg{
+    width:155%;
+    left:-34%;
+    top:7%;
+    height:93%;
+  }
+
+  .hero-data-flow .data-main{
+    stroke-dasharray:10 17;
+  }
+
+  .hero-data-flow .data-pulse{
+    stroke-dasharray:2 30;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .hero-data-flow .data-main,
+  .hero-data-flow .data-pulse,
+  .hero-data-flow .data-dot{
+    animation:none;
+  }
+}
 </style>
 </head>
 <body>
@@ -523,15 +2146,115 @@ footer{background:#cf0d75;color:#fff;text-align:center;padding:38px 20px 32px;bo
 <a href="#faq">FAQ</a>
 <a href="#coverage" class="nav-cta">📍 &nbsp;Cek Jangkauan</a>
 </div></nav>
-<header class="hero">
-<div class="hero-content">
-<h1>INTERNET RUMAH CEPAT &amp; FIBER OPTIC</h1>
-<h2>Internet cepat, stabil, dan nyaman untuk kebutuhan rumah.</h2>
-<p>Pilih paket internet rumah berbasis fiber optic sesuai kebutuhan Anda, mulai dari 100 Mbps hingga 500 Mbps, lalu cek ketersediaan jaringan berdasarkan area pemasangan.</p>
-<div class="signals"><span class="signal">✓ &nbsp; Fiber Optic</span><span class="signal">✓ &nbsp; Unlimited</span><span class="signal">📍 &nbsp; Nasional</span></div>
+<div class="info-carousel" id="infoCarousel" aria-label="Informasi Internet Rumah Indosat HiFi">
+  <div class="info-track">
+    <section class="info-slide carousel-slide" aria-label="Slide 1 dari 3">
+      <header class="hero">
+      <div class="hero-content">
+      <h1>INTERNET RUMAH CEPAT &amp; FIBER OPTIC</h1>
+      <h2>Internet cepat, stabil, dan nyaman untuk kebutuhan rumah.</h2>
+      <p>Pilih paket internet rumah berbasis fiber optic sesuai kebutuhan Anda, mulai dari 100 Mbps hingga 500 Mbps, lalu cek ketersediaan jaringan berdasarkan area pemasangan.</p>
+      <div class="signals"><span class="signal">✓ &nbsp; Fiber Optic</span><span class="signal">✓ &nbsp; Unlimited</span><span class="signal">📍 &nbsp; Nasional</span></div>
+      </div>
+      <div class="hero-price"><div class="small">MULAI DARI</div><div class="price">Rp220.890 <span>/bulan</span></div><div class="note">Harga sudah termasuk<br>PPN 11%</div></div>
+
+      <div class="hero-data-flow" aria-hidden="true">
+        <svg viewBox="0 0 1200 430" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="heroFlowCyan" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#00eaff" stop-opacity="0"/>
+              <stop offset=".42" stop-color="#00eaff"/>
+              <stop offset=".72" stop-color="#ffffff"/>
+              <stop offset="1" stop-color="#ffd400" stop-opacity=".9"/>
+            </linearGradient>
+            <linearGradient id="heroFlowGold" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#ffcf00" stop-opacity="0"/>
+              <stop offset=".45" stop-color="#ffcf00"/>
+              <stop offset=".75" stop-color="#fff7b0"/>
+              <stop offset="1" stop-color="#ff3f9c" stop-opacity=".85"/>
+            </linearGradient>
+            <filter id="heroFlowGlow" x="-30%" y="-100%" width="160%" height="300%">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+
+          <!-- lintasan utama: mengikuti arah cahaya di sisi kanan rumah -->
+          <path class="data-base" stroke="#00dfff" stroke-width="11" d="M510 315 C700 315 815 295 925 265 S1080 220 1240 205"/>
+          <path class="data-base" stroke="#ffcf00" stroke-width="7" d="M470 340 C690 355 820 335 945 300 S1090 255 1240 240"/>
+
+          <path class="data-main" stroke="url(#heroFlowCyan)" stroke-width="4" filter="url(#heroFlowGlow)" d="M510 315 C700 315 815 295 925 265 S1080 220 1240 205"/>
+          <path class="data-main delay1" stroke="url(#heroFlowGold)" stroke-width="3" filter="url(#heroFlowGlow)" d="M470 340 C690 355 820 335 945 300 S1090 255 1240 240"/>
+          <path class="data-main delay2" stroke="#ffffff" stroke-width="1.7" d="M530 300 C705 302 820 280 930 250 S1080 210 1235 195"/>
+
+          <!-- pulsa data berkecepatan tinggi -->
+          <path class="data-pulse" stroke="#ffffff" stroke-width="5" filter="url(#heroFlowGlow)" d="M520 315 C700 315 815 295 925 265 S1080 220 1240 205"/>
+          <path class="data-pulse delay1" stroke="#ffd400" stroke-width="3" filter="url(#heroFlowGlow)" d="M475 340 C690 355 820 335 945 300 S1090 255 1240 240"/>
+          <path class="data-pulse delay2" stroke="#00eaff" stroke-width="2.5" d="M535 300 C705 302 820 280 930 250 S1080 210 1235 195"/>
+
+          <!-- node cahaya kecil -->
+          <circle class="data-dot d1" cx="760" cy="305" r="4" fill="#fff"/>
+          <circle class="data-dot d2" cx="905" cy="270" r="3" fill="#ffd400"/>
+          <circle class="data-dot d3" cx="1045" cy="230" r="3.5" fill="#fff"/>
+        </svg>
+      </div>
+      </header>
+    </section>
+
+    <section class="info-slide slide-device carousel-slide" aria-label="Slide 2 dari 3">
+      <div class="device-layout">
+        <div class="network-visual">
+          <div class="speed-badge">KONEKSI <b>FIBER OPTIC</b></div>
+          <div class="visual-content">
+            <span class="visual-kicker">DARI JARINGAN KE RUMAH</span>
+            <h2>Dari jaringan fiber ke Wi-Fi di rumah</h2>
+            <p class="visual-desc">Alur sederhana koneksi FTTH: jaringan fiber → terminal jaringan di rumah → Wi-Fi/router → perangkat keluarga.</p>
+            <div class="fiber-scene" aria-label="Alur Fiber ke ONT lalu Wi-Fi">
+              <svg class="fiber-cable" viewBox="0 0 600 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs><linearGradient id="fiberGrad" x1="0" x2="1"><stop offset="0" stop-color="#ff2449"/><stop offset=".5" stop-color="#ffcf32"/><stop offset="1" stop-color="#e90079"/></linearGradient></defs>
+                <path class="c1" d="M15 50 C100 5 135 95 225 50 S350 5 420 50 S515 92 590 42"/>
+                <path class="c2" d="M15 50 C100 5 135 95 225 50 S350 5 420 50 S515 92 590 42"/>
+                <path class="c3" d="M15 50 C100 5 135 95 225 50 S350 5 420 50 S515 92 590 42"/>
+              </svg>
+              <div class="flow-node"><div class="node-icon">⌁</div><strong>Fiber</strong><small>FTTH</small></div>
+              <div class="flow-node"><div class="node-icon">□</div><strong>ONT</strong><small>Terminal</small></div>
+              <div class="flow-node"><div class="node-icon">⌁</div><strong>Wi-Fi</strong><small>Rumah</small></div>
+              <div class="speed-lines" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            </div>
+          </div>
+        </div>
+        <div class="device-panel">
+          <div class="device-card"><div class="device-icon"></div><div><strong>ONT / Modem Fiber</strong><span>Perangkat terminal optik yang menghubungkan jaringan fiber ke jaringan rumah.</span></div></div>
+          <div class="device-card"><div class="device-icon"></div><div><strong>Wi-Fi Router</strong><span>Mendistribusikan koneksi ke smartphone, laptop, TV, CCTV, dan perangkat rumah lainnya.</span></div></div>
+          <div class="device-card"><div class="device-icon"></div><div><strong>Fiber Optic</strong><span>Media transmisi utama FTTH untuk membawa koneksi langsung menuju rumah pelanggan.</span></div></div>
+          <div class="device-card"><div class="device-icon"></div><div><strong>Jaringan Rumah</strong><span>Penempatan router dan penggunaan Ethernet dapat membantu menjaga koneksi tetap optimal.</span></div></div>
+          <div class="slide-note">*Perangkat yang digunakan dapat berbeda sesuai layanan, area, instalasi, dan ketersediaan. Tampilan di atas adalah ilustrasi jenis perangkat, bukan foto/model tertentu.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-slide slide-why carousel-slide" aria-label="Slide 3 dari 3">
+      <div class="carousel-inner">
+        <div class="slide-heading">
+          <span class="slide-kicker">INTERNET RUMAH INDOSAT HIFI</span>
+          <h2>Kenapa Memilih Internet Rumah Indosat HiFi?</h2>
+          <p>Fiber optic, koneksi unlimited, pilihan kecepatan, dan pengalaman yang dirancang untuk kebutuhan internet di rumah.</p>
+        </div>
+        <div class="why-grid">
+          <div class="why-card"><div class="why-icon">✓</div><strong>100% Fiber Optic</strong><span>Koneksi internet rumah berbasis jaringan fiber optic.</span></div>
+          <div class="why-card"><div class="why-icon">∞</div><strong>Internet Unlimited</strong><span>Gunakan internet sesuai kebutuhan tanpa batas kuota paket.</span></div>
+          <div class="why-card"><div class="why-icon">⚡</div><strong>Pilihan 100–500 Mbps</strong><span>Tersedia pilihan kecepatan untuk kebutuhan rumah yang berbeda.</span></div>
+          <div class="why-card"><div class="why-icon">⌂</div><strong>Dirancang untuk Rumah</strong><span>Cocok untuk browsing, streaming, belajar, kerja, gaming, dan banyak perangkat.</span></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="carousel-dots" role="tablist" aria-label="Pilih slide">
+    <button type="button" class="carousel-dot active" data-slide="0" aria-label="Slide 1" aria-selected="true"></button>
+    <button type="button" class="carousel-dot" data-slide="1" aria-label="Slide 2" aria-selected="false"></button>
+    <button type="button" class="carousel-dot" data-slide="2" aria-label="Slide 3" aria-selected="false"></button>
+  </div>
 </div>
-<div class="hero-price"><div class="small">MULAI DARI</div><div class="price">Rp220.890 <span>/bulan</span></div><div class="note">Harga sudah termasuk<br>PPN 11%</div></div>
-</header>
 <section class="pricing" id="paket">
 <div class="pricing-heading">
   <h2>PAKET INTERNET RUMAH</h2>
@@ -1178,6 +2901,52 @@ document.querySelectorAll('.faq-question').forEach(function(button){
     });
 
 });
+</script>
+
+<script>
+(function(){
+  const carousel=document.getElementById('infoCarousel');
+  if(!carousel) return;
+  const track=carousel.querySelector('.info-track');
+  const slides=Array.from(carousel.querySelectorAll('.info-slide'));
+  const dots=Array.from(carousel.querySelectorAll('.carousel-dot'));
+  let current=0;
+  let timer=null;
+  let startX=0;
+  let moved=false;
+  const delay=5500;
+
+  function goTo(index, userAction){
+    current=(index+slides.length)%slides.length;
+    track.style.transform='translateX(-'+(current*100)+'%)';
+    dots.forEach((dot,i)=>{
+      const active=i===current;
+      dot.classList.toggle('active',active);
+      dot.setAttribute('aria-selected',active?'true':'false');
+    });
+    if(userAction) restart();
+  }
+  function stop(){if(timer){clearInterval(timer);timer=null;}}
+  function start(){stop();timer=setInterval(()=>goTo(current+1,false),delay);}
+  function restart(){start();}
+
+  dots.forEach(dot=>dot.addEventListener('click',()=>goTo(Number(dot.dataset.slide),true)));
+  carousel.addEventListener('mouseenter',stop);
+  carousel.addEventListener('mouseleave',start);
+  carousel.addEventListener('focusin',stop);
+  carousel.addEventListener('focusout',e=>{if(!carousel.contains(e.relatedTarget))start();});
+  carousel.addEventListener('touchstart',e=>{startX=e.changedTouches[0].clientX;moved=false;stop();},{passive:true});
+  carousel.addEventListener('touchmove',e=>{
+    if(Math.abs(e.changedTouches[0].clientX-startX)>10)moved=true;
+  },{passive:true});
+  carousel.addEventListener('touchend',e=>{
+    const dx=e.changedTouches[0].clientX-startX;
+    if(moved && Math.abs(dx)>45) goTo(current+(dx<0?1:-1),false);
+    start();
+  },{passive:true});
+  goTo(0,false);
+  start();
+})();
 </script>
 </body>
 </html>
